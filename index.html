@@ -22,4 +22,16 @@
     </main>
 
 </body>
+
+<script>
+    const form=document.querySelector("form");
+    form.addEventListener("submit",aoEnviar);
+
+    function aoEnviar(event){
+        event.preventDefault();
+        console.log("Hello, Form!");
+    }
+
+
+</script>
 </html>
