@@ -27,6 +27,8 @@
         </form>
 
         <p></p>
+        <h2>Visitas passadas:</h2>
+        <ol></ol>
     </main>
 
 </body>
@@ -34,7 +36,9 @@
 <script>
     const form=document.querySelector("form");
     form.addEventListener("submit",aoEnviar);
+    const p=document.querySelector("p");
 
+    const ol=document.querySelector("ol")
     function aoEnviar(event){
 
         event.preventDefault();
@@ -46,15 +50,41 @@
 
         const nomeCompleto = `${nome} ${sobrenome}, ${idade} anos`;
 
-        const p=document.querySelector("p");
+        
         p.innerHTML=`Olá <span>${nomeCompleto}</span>!`;
 
         form.reset();
         form.nome.focus();
 
+        adicionaPessoa(nome, sobrenome, idade);
+
         console.log(nomeCompleto)
     }
+    
+    function adicionaPessoa(nome, sobrenome, idade){
+        const li = document.createElement("li");
+        const divPessoa = document.createElement('div');
+        divPessoa.classList.add("pessoa");
+        
+        const spanNome= document.createElement("div");
+        spanNome.classList.add("nome");
+        spanNome.textContent=nome;
+        divPessoa.appendChild(spanNome);
+        
+        const spanSobrenome= document.createElement("div");
+        spanSobrenome.classList.add("sobrenome");
+        spanSobrenome.textContent=sobrenome;
+        divPessoa.appendChild(spanSobrenome);
 
+        const spanIdade= document.createElement("div");
+        spanIdade.classList.add("idade");
+        spanIdade.textContent=idade;
+        divPessoa.appendChild(spanIdade);
 
+        li.appendChild(divPessoa);
+        ol.appendChild(li);
+        
+    }
+    
 </script>
 </html>
