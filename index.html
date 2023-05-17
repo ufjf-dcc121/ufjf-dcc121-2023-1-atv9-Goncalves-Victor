@@ -7,8 +7,28 @@
     <title>Semana 9: Forms</title>
 
     <style>
-        p>span{
-            color: darkcyan;
+        .pessoa>div{
+            color: darkcyan;            
+            display: inline;
+        }
+
+        div.sobrenome{
+            color: blue;
+        }
+
+        .pessoa > .idade{
+            color: red;
+        }
+
+        .sobrenome::before{
+            content: ' ';
+        }
+        .idade::before{
+            content: ' ';
+        }
+        .idade::before{
+            content: ', ';
+            color: black;
         }
     </style>
 </head>
